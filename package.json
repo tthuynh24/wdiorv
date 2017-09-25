@@ -1,0 +1,23 @@
+{
+  "name": "wdio-rv",
+  "version": "1.0.0",
+  "description": "landing page",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "install": "^0.10.1",
+    "npm": "^5.4.2",
+    "wdio-mocha-framework": "^0.5.11",
+    "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-visual-regression-service": "^0.8.0",
+    "webdriverio": "^4.8.0"
+  },
+  "dependencies": {
+    "chai": "^4.1.2"
+  }
+}
