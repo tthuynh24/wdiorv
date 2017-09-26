@@ -1,15 +1,4 @@
-var path = require('path');
-var VisualRegressionCompare = require('wdio-visual-regression-service/compare');
-function getScreenshotName(basePath) {
-  return function(context) {
-    var type = context.type;
-    var testName = context.test.title;
-    var browserVersion = parseInt(context.browser.version, 10);
-    var browserName = context.browser.name;
-    var browserWidth = context.meta.width;
-    return path.join(basePath, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}.png`);
-  };
-}
+
 
 exports.config = {
     
@@ -57,7 +46,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome'
+        browserName: 'firefox'
     }],
     //
     // ===================
@@ -119,19 +108,9 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone','visual-regression'],
+    services: ['selenium-standalone'],
 	
-	visualRegression: {
-	 compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getScreenshotName(path.join(process.cwd(), 'screenshots/reference')),
-      screenshotName: getScreenshotName(path.join(process.cwd(), 'screenshots/screen')),
-      diffName: getScreenshotName(path.join(process.cwd(), 'screenshots/diff')),
-      misMatchTolerance: 0.01,
-    }),
-    viewportChangePause: 300,
-    widths: [320, 640],
-    orientations: ['landscape'],
-	},
+	
 	
     //
     // Framework you want to run your specs with.
@@ -151,6 +130,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd'
+        
     },
     //
     // =====
