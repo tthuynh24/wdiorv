@@ -67,13 +67,31 @@ describe('prices and phone numbers are formatted correctly', () => {
         browser.pause(2000);
     });
 
-    it.only('should show prices in the right format', () => {
-        var priceLine = browser.getText('body > main > section.hero.hero--home.hero--tall > div > div > div > div.medium-5.large-12.columns > div > p')
+    it('should show prices in the right format', () => {
+        var priceLine = browser.getText('body > main > section.hero.hero--home.hero--tall > div > div > div > div.medium-5.large-12.columns > div > p');
         var price = priceLine.substring(21, 26);
-        const regex = /(\d+\d{1,2})/;
-        console.log(price);
-        expect(regex.test(price)).to.be.true;
+        var regex = /(\d+\d{1,2})/;
+        var priceMatch = price.match(regex);
+        console.log(priceMatch);
     })
 
+    it('should show phone number in the right format', () => {
+        var phoneNum = browser.getText('body > main > section.section.section--mastfoot.is-bg-gradient-red > div > div > a.headline-3.headline-bold.section--mastfoot__phone.is-white > span');
+        var m = /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        var found = phoneNum.match(m);
+        console.log(found);
+    })
 
+});
+
+describe('form validation', () => {
+    beforeEach(function () {
+        browser.url('/');
+        browser.pause(2000);
+    });
+
+    it.only('should submit form without entering any information', () => {
+        browser.setValue('#zip', '');
+        browser.submitForm('=ZIP Code');
+    });
 });
