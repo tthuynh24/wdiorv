@@ -74,7 +74,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    baseUrl: 'https://internet.frontier.com',
+    baseUrl: 'https://internet.frontier.com/?lp=6108',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
