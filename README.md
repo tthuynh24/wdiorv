@@ -25,11 +25,8 @@ We will test a landing page using Selenium WebdriverIO:
 
 
 ## Results from Testing
-1. The homepage give two diffrent pages on different browsers (chrome and firefox)
-2. Countdown timer sometimes are missing
-3. Direct links takes you to wrong page
-4. Incomplete resources such as page id elements are missing which can affect test automation
-5. When making the window smaller, part of the nav bar or menu are missing. This could be a design flaw. 
-6. Some of the images are hidden files. In order to test if the images are visible we have to integrate 
+1. Incomplete resources such as page id elements are missing which can affect test automation
+2. When making the window smaller, part of the nav bar or menu are missing. This could be a design flaw. 
+3. Some of the images are hidden files. In order to test if the images are visible we have to integrate 
    visual regression testing which require another plugin to test for these images. 
 
